@@ -1,6 +1,6 @@
 <?php
-include("libs/session.php");
-include("libs/dbconn.php");
+include("libs/login.php");
+include("libs/customer_signup.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -43,150 +43,186 @@ include("libs/dbconn.php");
 </head>
 
 <body>
-    <div class="wrapper-area">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <!-- Add your site or application content here -->
-        <!-- Header Area Start Here -->
-        <header>
-            <div class="header-area-style2" id="sticker">
-                <div class="header-top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
-                                <div class="account-wishlist">
-                                    <?php
-                                    $id = (int) $_SESSION['id'];
-
-                                    $query = $conn->query ("SELECT * FROM customer WHERE customerid = '$id' ") or die (mysqli_error());
-                                    $fetch = $query->fetch_array ();
-                                    ?>
-                                    <ul>
-                                        <!-- Button trigger modal -->
-                                        <li><a href="libs/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>خروج</a></li>
-                                        <li><a data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-sign-in" aria-hidden="true"></i> <?php echo $fetch['firstname']; ?>&nbsp;<?php echo $fetch['lastname'];?></a>:مرحبا</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-2 hidden-xs">
-                                <div class="logo-area">
-                                    <a href="index.html"><img class="img-responsive" src="img/logo.png" alt="logo"></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
-                                <ul class="header-cart-area">
-
-                                    <li>
-                                        <div class="cart-area">
-                                            <a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>2</span></a>
-                                         </div>
-                                    </li>
-
+<div class="wrapper-area">
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <!-- Header Area Start Here -->
+    <header>
+        <div class="header-area-style2" id="sticker">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+                            <div class="account-wishlist">
+                                <ul>
+                                    <!-- Button trigger modal -->
+                                    <li><a data-toggle="modal" data-target="#exampleModalCenter1"><i class="fa fa-sign-out" aria-hidden="true"></i> تسجيل</a></li>
+                                    <li><a data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-sign-in" aria-hidden="true"></i> دخول</a></li>
                                 </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-2 hidden-xs">
+                            <div class="logo-area">
+                                <a href="index.html"><img class="img-responsive" src="img/logo.png" alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+                            <ul class="header-cart-area">
+
+                                <li>
+                                    <div class="cart-area">
+                                        <a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>2</span></a>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="logo-area">
+                                <a href="index.html"><img class="img-responsive" src="img/logo2.png" alt="logo"></a>
+                            </div>
+                            <div class="main-menu-area home2-sticky-area">
+                                <nav>
+                                    <ul>
+                                        <li ><a href="index.php">الرئيسة</a>
+                                        </li>
+                                        <li><a href="shop2.php">اولاد</a></li>
+                                        <li><a href="shop1.php">بنات</a></li>
+                                        <li><a href="about.php">من نحن</a></li>
+                                        <li><a href="contact.php">اتصل بنا</a></li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="header-bottom">
+                <!-- Mobile Menu Area Start Here -->
+                <div class="mobile-menu-area">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="logo-area">
-                                    <a href="index.html"><img class="img-responsive" src="img/logo2.png" alt="logo"></a>
-                                </div>
-                                <div class="main-menu-area home2-sticky-area">
-                                    <nav>
+                            <div class="col-md-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
                                         <ul>
-                                            <li class="active"><a href="index.html">Home</a>
+                                            <li ><a href="index.php">الرئيسة</a>
                                             </li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="shop2.php">اولاد</a></li>
+                                            <li><a href="shop1.php">بنات</a></li>
+                                            <li><a href="about.php">من نحن</a></li>
+                                            <li><a href="contact.php">اتصل بنا</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Mobile Menu Area Start Here -->
-                    <div class="mobile-menu-area">
-                        <div class="container">
+                </div>
+                <!-- Mobile Menu Area End Here -->
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">البريد الالكتروني</label>
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الالكتروني">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">الرقم السري</label>
+                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="الرقم السري">
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
+                        <button type="submit" name="login" class="btn btn-primary">دخول</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mobile-menu">
-                                        <nav id="dropdown">
-                                            <ul>
-                                                <li class="active"><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login-registration.html">Login Registration</a></li>
-                                                <li><a href="my-account.html">My Account</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                            </ul>
-                                        </nav>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="firstname" class="form-control" placeholder="الاسم الاول">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="mi" class="form-control" placeholder="الوسط">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="lastname" class="form-control" placeholder="الاسم الاخير">
+                                    </div>
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="form-group">
+                                        <input type="email"  name="email" class="form-control" placeholder="البريد الالكتروني">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="password" name="password" class="form-control" placeholder="الرقم السري">
+                                    </div>
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="form-group">
+                                        <input name="address" type="text" class="form-control" placeholder="العنوان">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="zipcode" class="form-control" placeholder="كود البريد">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6">
+                                    <div class="form-group">
+                                        <input type="tel" name="mobile" class="form-control" placeholder="الموبايل">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6">
+                                    <div class="form-group">
+                                        <input type="tel" name="telephone" class="form-control" placeholder="التليفون">
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                    <!-- Mobile Menu Area End Here -->
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <div class="form-group">
-                                            <td class="profile">Name:</td><td class="profile"><?php echo $fetch['firstname'];?>&nbsp;<?php echo $fetch['mi'];?>&nbsp;<?php echo $fetch['lastname'];?></td>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <div class="form-group">
-                                            <td class="profile">Address:</td><td class="profile"><?php echo $fetch['address'];?></td>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <div class="form-group">
-                                            <td class="profile">ZIP Code:</td><td class="profile"><?php echo $fetch['zipcode'];?></td>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <div class="form-group">
-                                            <td class="profile">Mobile Number:</td><td class="profile"><?php echo $fetch['mobile'];?></td>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <div class="form-group">
-                                            <td class="profile">Telephone Number:</td><td class="profile"><?php echo $fetch['telephone'];?></td>
-                                        </div>
-                                    </div>
-                                    <div class=" col-xs-4">
-                                        <div class="form-group">
-                                            <td class="profile">Email:</td><td class="profile"><?php echo $fetch['email'];?></td>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <a href="account.php?id=<?php echo $fetch['customerid']; ?>"><input type="button" class="btn btn-success" name="edit" value="تعديل"></a>
-                            <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">اغلاق</button>
-                            </form>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
+                        <button type="button" class="btn btn-primary">حفظ </button>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
         <!-- Header Area End Here -->
         <!-- Slider Area Start Here -->
         <div class="main-slider2">
@@ -315,8 +351,7 @@ include("libs/dbconn.php");
                         <ul class="product-social">
                             <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                        </ul>
+                          <li><a href="details.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>                        </ul>
                         <div class="product-img-holder">
                             <a href="#"><img src="img/product/804d50d4-bec9-4f02-9e4c-0b10423d9469.jpg" alt="product"></a>
                         </div>
@@ -436,8 +471,7 @@ include("libs/dbconn.php");
                             <ul class="product-social">
                                 <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                            </ul>
+                              <li><a href="details.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>                            </ul>
                             <div class="product-img-holder">
                                 <div class="hot-sale">
                                     <span>Hot</span>
@@ -455,8 +489,7 @@ include("libs/dbconn.php");
                             <ul class="product-social">
                                 <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                            </ul>
+                              <li><a href="details.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>                            </ul>
                             <div class="product-img-holder">
                                 <div class="hot-sale">
                                     <span>أوكازيون</span>
@@ -474,8 +507,7 @@ include("libs/dbconn.php");
                             <ul class="product-social">
                                 <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                            </ul>
+                              <li><a href="details.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>                            </ul>
                             <div class="product-img-holder">
                                 <div class="hot-sale">
                                     <span>أوكازيون</span>
@@ -493,8 +525,7 @@ include("libs/dbconn.php");
                             <ul class="product-social">
                                 <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                            </ul>
+                              <li><a href="details.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>                            </ul>
                             <div class="product-img-holder">
                                 <a href="#"><img src="img/product/sale/8.jpg" alt="product"></a>
                             </div>
@@ -509,8 +540,7 @@ include("libs/dbconn.php");
                             <ul class="product-social">
                                 <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                            </ul>
+                              <li><a href="details.php"><i class="fa fa-eye" aria-hidden="true"></i></a></li>                            </ul>
                             <div class="product-img-holder">
                                 <div class="hot-sale">
                                     <span>جديد</span>
@@ -529,45 +559,51 @@ include("libs/dbconn.php");
         <!-- Product Area End Here -->
        
         <!-- Advantage Area Start Here -->
-        <div class="advantage3-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="advantage-area-box">
-                            <div class="advantage-area-box-icon">
-                                <a href="#"><i class="flaticon-truck"></i></a>
-                            </div>
-                            <div class="advantage-area-box-content">
-                                <h3>FREE SHIPPING WORLDWIDE</h3>
-                                <p>On All Orders Of USD $50</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="advantage-area-box">
-                            <div class="advantage-area-box-icon">
-                                <a href="#"><i class="flaticon-headphones"></i></a>
-                            </div>
-                            <div class="advantage-area-box-content">
-                                <h3>24/7 CUSTOMER SERVICE</h3>
-                                <p>Get Help When You Need It</p>
+    <div class="advantage2-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="advantage-area-box">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <i class="flaticon-truck"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3>الشحن مجانا</h3>
+                                <p>على جميع الطلبات</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="advantage-area-box">
-                            <div class="advantage-area-box-icon">
-                                <a href="#"><i class="flaticon-reload"></i></a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="advantage-area-box">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <i class="flaticon-headphones"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3>خدمة 24 ساعة </h3>
+                                <p>احصل على مساعدة عند الحاجة</p>
                             </div>
-                            <div class="advantage-area-box-content">
-                                <h3>100% MONEY BACK</h3>
-                                <p>30 Day Money Back Guarantee.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="advantage-area-box">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <i class="flaticon-reload"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3>إرجاع النقود</h3>
+                                <p>ضمن 30 يوم ضمان</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         <!-- Advantage Area End Here -->
         <!-- Footer Area Start Here -->
         <footer>
@@ -649,22 +685,7 @@ include("libs/dbconn.php");
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <p>© 2016 Spectra All Rights Reserved. Designed by<a href="http://spectraapps.com" target="_blank"> SpectraApps</a></p>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <ul class="payment-method">
-                                    <li>
-                                        <a href="#"><img src="img/payment-method1.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method2.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method3.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method4.jpg" alt="payment-method"></a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                 </div>

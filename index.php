@@ -92,10 +92,12 @@ include("libs/customer_signup.php");
                                 <div class="main-menu-area home2-sticky-area">
                                     <nav>
                                         <ul>
-                                            <li class="active"><a href="index.html">Home</a>
+                                            <li ><a href="index.php">الرئيسة</a>
                                             </li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="shop2.php">اولاد</a></li>
+                                            <li><a href="shop1.php">بنات</a></li>
+                                            <li><a href="about.php">من نحن</a></li>
+                                            <li><a href="contact.php">اتصل بنا</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -110,13 +112,12 @@ include("libs/customer_signup.php");
                                     <div class="mobile-menu">
                                         <nav id="dropdown">
                                             <ul>
-                                                <li class="active"><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login-registration.html">Login Registration</a></li>
-                                                <li><a href="my-account.html">My Account</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                <li ><a href="index.php">الرئيسة</a>
+                                                </li>
+                                                <li><a href="shop2.php">اولاد</a></li>
+                                                <li><a href="shop1.php">بنات</a></li>
+                                                <li><a href="about.php">من نحن</a></li>
+                                                <li><a href="contact.php">اتصل بنا</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -476,39 +477,45 @@ include("libs/customer_signup.php");
         <!-- Product Area End Here -->
        
         <!-- Advantage Area Start Here -->
-        <div class="advantage3-area">
+        <div class="advantage2-area">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="advantage-area-box">
-                            <div class="advantage-area-box-icon">
-                                <a href="#"><i class="flaticon-truck"></i></a>
-                            </div>
-                            <div class="advantage-area-box-content">
-                                <h3>FREE SHIPPING WORLDWIDE</h3>
-                                <p>On All Orders Of USD $50</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="advantage-area-box">
-                            <div class="advantage-area-box-icon">
-                                <a href="#"><i class="flaticon-headphones"></i></a>
-                            </div>
-                            <div class="advantage-area-box-content">
-                                <h3>24/7 CUSTOMER SERVICE</h3>
-                                <p>Get Help When You Need It</p>
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <i class="flaticon-truck"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3>الشحن مجانا</h3>
+                                    <p>على جميع الطلبات</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="advantage-area-box">
-                            <div class="advantage-area-box-icon">
-                                <a href="#"><i class="flaticon-reload"></i></a>
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <i class="flaticon-headphones"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3>خدمة 24 ساعة </h3>
+                                    <p>احصل على مساعدة عند الحاجة</p>
+                                </div>
                             </div>
-                            <div class="advantage-area-box-content">
-                                <h3>100% MONEY BACK</h3>
-                                <p>30 Day Money Back Guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="advantage-area-box">
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <i class="flaticon-reload"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3>إرجاع النقود</h3>
+                                    <p>ضمن 30 يوم ضمان</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -595,22 +602,6 @@ include("libs/customer_signup.php");
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <p>© 2016 Spectra All Rights Reserved. Designed by<a href="http://spectraapps.com" target="_blank"> SpectraApps</a></p>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <ul class="payment-method">
-                                    <li>
-                                        <a href="#"><img src="img/payment-method1.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method2.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method3.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method4.jpg" alt="payment-method"></a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>

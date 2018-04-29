@@ -223,16 +223,17 @@ include("libs/customer_signup.php");
             </div>
         </div>
     </header>
+        <!-- Header Area End Here -->
         <!-- Inner Page Banner Area Start Here -->
         <div class="inner-page-banner-area">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="breadcrumb-area">
-                            <h1>اولاد</h1>
+                            <h1>Contact With US</h1>
                             <ul>
-                                <li><a href="index.php">الرئيسة</a> /</li>
-                                <li>اولاد</li>
+                                <li><a href="index.html">Home</a> /</li>
+                                <li>Contact</li>
                             </ul>
                         </div>
                     </div>
@@ -240,126 +241,76 @@ include("libs/customer_signup.php");
             </div>
         </div>
         <!-- Inner Page Banner Area End Here -->
-        <!-- Shop Page Area Start Here -->
-        <div class="shop-page-area">
+        <!-- Contact Us Page Area Start Here -->
+        <div class="contact-us-page-area">
             <div class="container">
                 <div class="row">
-
-                    <div class="col-xs-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
-                                <div class="inner-shop-top-left">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
-                                <div class="inner-shop-top-right">
-                                    <ul>
-                                        <li class="active"><a href="#gried-view" data-toggle="tab" aria-expanded="false"><i class="fa fa-th-large"></i></a></li>
-                                        <li><a href="#list-view" data-toggle="tab" aria-expanded="true"><i class="fa fa-list"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                        <div class="contact-us-right">
+                            <h2 class="title-sidebar">Contact Info</h2>
+                            <ul>
+                                <li class="con-address">59 Street, Melbourne Kazi City # 34 Road, House #10.</li>
+                                <li class="con-envelope">info@metro.com</li>
+                                <li class="con-phone">+ 123 45678910
+                                    <br> + 123 45678910</li>
+                                <li class="con-fax">+ 123 45678910</li>
+                            </ul>
                         </div>
-                        <div class="row inner-section-space-top">
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active clear products-container" id="gried-view">
-
-                                    <?php
-
-                                    $query = $conn->query("SELECT *FROM product WHERE category='boy' ORDER BY product_id DESC") or die (mysqli_error());
-
-                                    while($fetch = $query->fetch_array())
-                                    {
-
-                                    $pid = $fetch['product_id'];
-
-                                    $query1 = $conn->query("SELECT * FROM stock WHERE product_id = '$pid'") or die (mysql_error());
-                                    $rows = $query1->fetch_array();
-
-                                    $qty = $rows['qty'];
-                                    if($qty <= 5){
-
-                                    }else{
-                                    echo "<div class=\"col-sm-3 col-xs-6\">";
-                                    echo "<div class=\"product-box1\">";
-                                    echo "<ul class=\"product-social\">
-                                        <li><a href=\"#\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i></a></li>
-                                        <li><a href=\"#\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i></a></li>
-                                        <li><a href='details.php?id=".$fetch['product_id']."'><i class=\"fa fa-eye\" aria-hidden=\"true\"></i></a></li>
-                                    </ul>";
-                                    echo "<div class=\"product-img-holder\">";
-                                        echo "<a href='details.php?id=".$fetch['product_id']."'><img class=\"img-responsive\"  src='templates/img/product/boy/".$fetch['product_image']."' ></a>";
-                                        echo "<div class=\"product-content-holder\">
-                                            <h3><a href='details.php?id=".$fetch['product_id']."'>".$fetch['product_name']."</a></h3>
-                                            <span>".$fetch['product_price']."</span>
-                                        </div>";
-                                        echo "</div>
-                                </div>
-                                </div>";
-                                }
-
-                                }
-                                ?>
-
-
-
-                                </div>
-                                <!-- List Style -->
-                                <div role="tabpanel" class="tab-pane clear products-container" id="list-view">
-
-                                    <?php
-
-                                    $query = $conn->query("SELECT *FROM product WHERE category='boy' ORDER BY product_id DESC") or die (mysqli_error());
-
-                                    while($fetch = $query->fetch_array())
-                                    {
-
-                                        $pid = $fetch['product_id'];
-
-                                        $query1 = $conn->query("SELECT * FROM stock WHERE product_id = '$pid'") or die (mysql_error());
-                                        $rows = $query1->fetch_array();
-
-                                        $qty = $rows['qty'];
-                                        if($qty <= 5){
-
-                                        }else{
-                                            echo "<div class=\"col-lg-12 col-md-12 col-sm-4 col-xs-12\">";
-                                            echo "<div class=\"product-box2\">";
-                                            echo "<div class=\"media\">";
-                                            echo "<a class=\"pull-left\" href=\"#\">
-                                                    <img class=\"img-responsive\" src='templates/img/product/boy/".$fetch['product_image']."' alt=\"boys\">
-                                                </a>";
-                                            echo "<div class=\"media-body\">
-                                                    <div class=\"product-box2-content\">
-                                                        <h3><a href='details.php?id=".$fetch['product_id']."'>".$fetch['product_name']."</a></h3>
-                                                        <span>".$fetch['product_price']."</span>
-                                                        <p>".$fetch['description']."</p>
-                                                    </div>";
-                                            echo "<ul class=\"product-box2-cart\">
-                                                        <li><a href=\"#\">Add To Cart</a></li>
-                                                        <li><a href=\"#\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i></a></li>
-                                                        <li><a href=\"details.php\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i></a></li>
-                                                    </ul>";
-                                            echo "</div>
-                                            </div>
-                                        </div>
-                                    </div>";
-                                        }
-
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+                    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                        <div class="contact-us-left">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="google-map-area">
+                                        <div id="googleMap" style="width:100%; height:395px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2>إرسال رسالة </h2>
+                            <div class="row">
+                                <div class="contact-form">
+                                    <form id="contact-form">
+                                        <fieldset>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="اسم*" class="form-control" id="form-name" data-error="Name field is required" required>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="email" placeholder="البريد الإلكتروني*" class="form-control" id="form-email" data-error="Email field is required" required>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <textarea placeholder="رسالة*" class="textarea form-control" id="form-message" rows="8" cols="20" data-error="Message field is required" required></textarea>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn-send-message">أرسل رسالة</button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class='form-response'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
-        <!-- Shop Page Area End Here -->
-       <!-- Footer Area Start Here -->
+        <!-- Contact Us Page Area End Here -->
+            <!-- Footer Area Start Here -->
         <footer>
             <div class="footer-area">
                 <div class="footer-area-top">
@@ -439,22 +390,6 @@ include("libs/customer_signup.php");
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <p>© 2016 Spectra All Rights Reserved. Designed by<a href="http://spectraapps.com" target="_blank"> SpectraApps</a></p>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <ul class="payment-method">
-                                    <li>
-                                        <a href="#"><img src="img/payment-method1.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method2.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method3.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method4.jpg" alt="payment-method"></a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -462,116 +397,32 @@ include("libs/customer_signup.php");
         </footer>
         <!-- Footer Area End Here -->
     </div>
-    <!-- Modal Dialog Box Start Here-->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-body">
-                <button type="button" class="close myclose" data-dismiss="modal">&times;</button>
-                <div class="product-details1-area">
-                    <div class="product-details-info-area">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                                <div class="inner-product-details-left">
-                                    <div class="tab-content">
-                                        <div id="metro-related1" class="tab-pane fade active in">
-                                            <a href="#"><img class="img-responsive" src="img/product/product-details1.jpg" alt="single"></a>
-                                        </div>
-                                        <div id="metro-related2" class="tab-pane fade">
-                                            <a href="#"><img class="img-responsive" src="img/product/product-details1.jpg" alt="single"></a>
-                                        </div>
-                                        <div id="metro-related3" class="tab-pane fade">
-                                            <a href="#"><img class="img-responsive" src="img/product/product-details1.jpg" alt="single"></a>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        <li class="active">
-                                            <a aria-expanded="false" data-toggle="tab" href="#metro-related1"><img class="img-responsive" src="img/product/product-details4.jpg" alt="related1"></a>
-                                        </li>
-                                        <li>
-                                            <a aria-expanded="false" data-toggle="tab" href="#metro-related2"><img class="img-responsive" src="img/product/product-details4.jpg" alt="related2"></a>
-                                        </li>
-                                        <li>
-                                            <a aria-expanded="false" data-toggle="tab" href="#metro-related3"><img class="img-responsive" src="img/product/product-details4.jpg" alt="related3"></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                                <div class="inner-product-details-right">
-                                    <h3>Product Title Here</h3>
-                                    <ul>
-                                        <li><i aria-hidden="true" class="fa fa-star"></i></li>
-                                        <li><i aria-hidden="true" class="fa fa-star"></i></li>
-                                        <li><i aria-hidden="true" class="fa fa-star"></i></li>
-                                        <li><i aria-hidden="true" class="fa fa-star"></i></li>
-                                        <li><i aria-hidden="true" class="fa fa-star"></i></li>
-                                    </ul>
-                                    <p class="price">$59.00</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tinc amet risus consectetur, non consectetur nisl finibus. Ut ac eros quis mi volutpat cursus vel non risus.</p>
-                                    <div class="product-details-content">
-                                        <p><span>SKU:</span> 0010</p>
-                                        <p><span>Availability:</span> In stock</p>
-                                        <p><span>Category:</span> Demo Products</p>
-                                    </div>
-                                    <ul class="product-details-social">
-                                        <li>Share:</li>
-                                        <li><a href="#"><i aria-hidden="true" class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i aria-hidden="true" class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i aria-hidden="true" class="fa fa-pinterest"></i></a></li>
-                                    </ul>
-                                    <ul class="inner-product-details-cart">
-                                        <li><a href="#">Add To Cart</a></li>
-                                        <li>
-                                            <div class="input-group quantity-holder" id="quantity-holder">
-                                                <input type="text" placeholder="1" value="1" class="form-control quantity-input" name="quantity">
-                                                <div class="input-group-btn-vertical">
-                                                    <button type="button" class="btn btn-default quantity-plus"><i aria-hidden="true" class="fa fa-plus"></i></button>
-                                                    <button type="button" class="btn btn-default quantity-minus"><i aria-hidden="true" class="fa fa-minus"></i></button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="btn-services-shop-now" data-dismiss="modal">Close</a>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Dialog Box End Here-->
     <!-- Preloader Start Here -->
-    <div id="preloader"></div>
-    <!-- Preloader End Here -->
-    <!-- jquery-->
-    <script src="templates/js/vendor/jquery-2.2.4.min.js" type="text/javascript"></script>
-    <!-- Bootstrap js -->
-    <script src="templates/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- Owl Cauosel JS -->
-    <script src="templates/js/owl.carousel.min.js" type="text/javascript"></script>
-    <!-- Meanmenu Js -->
-    <script src="templates/js/jquery.meanmenu.min.js" type="text/javascript"></script>
-    <!-- WOW JS -->
-    <script src="templates/js/wow.min.js" type="text/javascript"></script>
-    <!-- Plugins js -->
-    <script src="templates/js/plugins.js" type="text/javascript"></script>
-    <!-- Countdown js -->
-    <script src="templates/js/jquery.countdown.min.js" type="text/javascript"></script>
-    <!-- Srollup js -->
-    <script src="templates/js/jquery.scrollUp.min.js" type="text/javascript"></script>
-    <!-- Actual Js -->
-    <script src="templates/js/jquery.actual.min.js" type="text/javascript"></script>
-    <!-- Nouislider Js -->
-    <script src="templates/vendor/noUiSlider/nouislider.min.js" type="text/javascript"></script>
-    <!-- wNumb Js -->
-    <script src="templates/js/wNumb.js" type="text/javascript"></script>
-    <!-- Custom Js -->
-    <script src="templates/js/main.js" type="text/javascript"></script>
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+<!-- jquery-->
+<script src="templates/js/vendor/jquery-2.2.4.min.js" type="text/javascript"></script>
+<!-- Bootstrap js -->
+<script src="templates/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- Owl Cauosel JS -->
+<script src="templates/js/owl.carousel.min.js" type="text/javascript"></script>
+<!-- Nivo slider js -->
+<script src="templates/lib/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
+<script src="templates/lib/custom-slider/home.js" type="text/javascript"></script>
+<!-- Meanmenu Js -->
+<script src="templates/js/jquery.meanmenu.min.js" type="text/javascript"></script>
+<!-- WOW JS -->
+<script src="templates/js/wow.min.js" type="text/javascript"></script>
+<!-- Plugins js -->
+<script src="templates/js/plugins.js" type="text/javascript"></script>
+<!-- Countdown js -->
+<script src="templates/js/jquery.countdown.min.js" type="text/javascript"></script>
+<!-- Srollup js -->
+<script src="templates/js/jquery.scrollUp.min.js" type="text/javascript"></script>
+<!-- Isotope js -->
+<script src="templates/js/isotope.pkgd.min.js" type="text/javascript"></script>
+<!-- Custom Js -->
+<script src="templates/js/main.js" type="text/javascript"></script>
 </body>
 
 </html>

@@ -133,7 +133,6 @@
 
 				$q1 = $conn->query("INSERT INTO offers ( offers_id, offers_name, offers_titles, offers_prsentage, offers_image, status, pharesa)
 				VALUES ('$offers_id','$offers_name','$offers_name','$offers_titles','$offers_prsentage', '$status', '$pharesa')");
-				header ("location:admin_offers.php");
 			}}
 		}
 

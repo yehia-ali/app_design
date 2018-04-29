@@ -70,6 +70,12 @@
 							<tr>
 								<td><input type="file" name="product_image" required></td>
 							</tr>
+                            <tr>
+								<td><input type="file" name="product_image2" required></td>
+							</tr>
+                            <tr>
+								<td><input type="file" name="product_image3" required></td>
+							</tr>
 							<?php include("random_id.php"); 
 							echo '<tr>
 								<td><input type="hidden" name="product_code" value="'.$code.'" required></td>
@@ -84,9 +90,15 @@
 							<tr>
 								<td><input type="text" name="brand" placeholder="Brand Name	" style="width:250px;" required></td>
 							</tr>
-							<tr>
-								<td><input type="number" name="qty" placeholder="No. of Stock" style="width:250px;" required></td>
+                            <tr>
+								<td><input type="text" name="size" placeholder="size" style="width:250px;" required></td>
 							</tr>
+                            <tr>
+								<td><input type="text" name="color" placeholder="color" style="width:250px;" required></td>
+							</tr>
+                            <tr>
+                                <td><textarea type="text" name="description" placeholder="description" style="width:250px;" required rows="3"></textarea></td>
+                            </tr>
 							<tr>
 								<td><input type="hidden" name="category" value="Girls"></td>
 							</tr>
@@ -107,8 +119,10 @@
 					$product_name = $_POST['product_name'];
 					$product_price = $_POST['product_price'];
 					$brand = $_POST['brand'];
+					$description = $_POST['description'];
 					$category = $_POST['category'];
-					$qty = $_POST['qty'];
+					$color = $_POST['color'];
+					$size = $_POST['size'];
 					$code = rand(0,10000000);
 						
 								$name = $code.$_FILES["product_image"] ["name"];
@@ -116,6 +130,16 @@
 								$size = $_FILES["product_image"] ["size"];
 								$temp = $_FILES["product_image"] ["tmp_name"];
 								$error = $_FILES["product_image"] ["error"];
+                                $name2 = $code.$_FILES["product_image2"] ["name"];
+                                $type2 = $_FILES["product_image2"] ["type"];
+                                $size2 = $_FILES["product_image2"] ["size"];
+                                $temp2 = $_FILES["product_image2"] ["tmp_name"];
+                                $error2 = $_FILES["product_image2"] ["error"];
+                                $name3 = $code.$_FILES["product_image3"] ["name"];
+                                $type3 = $_FILES["product_image3"] ["type"];
+                                $size3 = $_FILES["product_image3"] ["size"];
+                                $temp3 = $_FILES["product_image3"] ["tmp_name"];
+                                $error3 = $_FILES["product_image3"] ["error"];
 										
 								if ($error > 0){
 									die("Error uploading file! Code $error.");}
@@ -128,13 +152,12 @@
 									else
 									{
 										move_uploaded_file($temp,"../templates/img/product/girl/".$name);
-			
+										move_uploaded_file($temp2,"../templates/img/product/girl/".$name2);
+										move_uploaded_file($temp3,"../templates/img/product/girl/".$name3);
 
-				$q1 = $conn->query("INSERT INTO product ( product_id,product_name, product_price, product_image, brand, category)
-				VALUES ('$product_code','$product_name','$product_price','$name', '$brand', '$category')");
-				
-				$q2 = $conn->query("INSERT INTO stock ( product_id, qty) VALUES ('$product_code','$qty')");
-				
+
+				$q1 = $conn->query("INSERT INTO product ( product_id, product_name, product_price, product_image, product_image2, product_image3, brand, category, description, color , size)
+				VALUES ('$product_code','$product_name','$product_price','$name','$name2','$name3' , '$brand', '$category', '$description', '$color', '$size')");
 				header ("location:admin_girls.php");
 			}}
 		}
@@ -171,8 +194,8 @@
 					<th>Product Name</th>
 					<th>Product Price</th>
 					<th>description</th>
-					<th>no of</th>
-					<th>Action</th>
+					<th>color</th>
+					<th>size</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -184,69 +207,23 @@
 						$id = $fetch['product_id'];
 				?>
 				<tr class="del<?php echo $id?>">
-					<td><img class="img-polaroid" src = "../templates/img/product/girl/<?php echo $fetch['product_image']?>" height = "70px" width = "80px"></td>
+					<td><img class="img-polaroid" src = "../templates/img/product/girl/<?php echo $fetch['product_image']?>" height = "30px" width = "30px">
+					<img class="img-polaroid" src = "../templates/img/product/girl/<?php echo $fetch['product_image2']?>" height = "30px" width = "30px">
+					<img class="img-polaroid" src = "../templates/img/product/girl/<?php echo $fetch['product_image3']?>" height = "30px" width = "30px"></td>
 					<td><?php echo $fetch['product_name']?></td>
 					<td><?php echo $fetch['product_price']?></td>
 					<td><?php echo $fetch['description']?></td>
-					
-					<?php
-					$query1 = $conn->query("SELECT * FROM `stock` WHERE product_id='$id'") or die(mysqli_error());
-					$fetch1 = $query1->fetch_array();
-					
-						$qty = $fetch1['qty'];
-					?>
-					
-					<td><?php echo $fetch1['qty']?></td>
-					<td style="width:220px;">
-					<?php
-					echo "<a href='stockin.php?id=".$id."' class='btn btn-success' rel='facebox'><i class='icon-plus-sign icon-white'></i> Stock In</a> ";
-					echo "<a href='stockout.php?id=".$id."' class='btn btn-danger' rel='facebox'><i class='icon-minus-sign icon-white'></i> Stock Out</a>";
-					?>
-					</td>
-				</tr>		
+					<td><?php echo $fetch['color']?></td>
+					<td><?php echo $fetch['size']?></td>
+				</tr>
 				<?php
 					}
 				?>
 				</tbody>
 			</table>
 		</div>	
-  <?php
-  /* stock in */
-  if(isset($_POST['stockin'])){
-  
-  $pid = $_POST['pid'];
-  
- $result = $conn->query("SELECT * FROM `stock` WHERE product_id='$pid'") or die(mysqli_error());
- $row = $result->fetch_array();
- 
-  $old_stck = $row['qty'];
-  $new_stck = $_POST['new_stck'];
-  $total = $old_stck + $new_stck;
- 
-  $que = $conn->query("UPDATE `stock` SET `qty` = '$total' WHERE `product_id`='$pid'") or die(mysql_error());
-  echo "<script>window.location = 'admin_girls.php'</script>";
-  //header("Location:admin_running.php");
- }
- 
-  /* stock out */
- if(isset($_POST['stockout'])){
-  
-  $pid = $_POST['pid'];
-  
- $result = $conn->query("SELECT * FROM `stock` WHERE product_id='$pid'") or die(mysqli_error());
- $row = $result->fetch_array();
- 
-  $old_stck = $row['qty'];
-  $new_stck = $_POST['new_stck'];
-  $total = $old_stck - $new_stck;
- 
-  $que = $conn->query("UPDATE `stock` SET `qty` = '$total' WHERE `product_id`='$pid'") or die(mysqli_error());
-  
-  echo "<script>window.location = 'admin_girls.php'</script>";
-  //header("Location:admin_running.php");
- }
-  ?>				
-			
+
+
 	
 			
 </body>

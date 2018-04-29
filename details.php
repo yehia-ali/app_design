@@ -43,185 +43,186 @@ include("libs/customer_signup.php");
 </head>
 
 <body>
-    <div class="wrapper-area">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <!-- Add your site or application content here -->
-        <!-- Header Area Start Here -->
-        <header>
-            <div class="header-area-style2" id="sticker">
-                <div class="header-top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
-                                <div class="account-wishlist">
-                                    <ul>
-                                        <!-- Button trigger modal -->
-                                        <li><a data-toggle="modal" data-target="#exampleModalCenter1"><i class="fa fa-sign-out" aria-hidden="true"></i> تسجيل</a></li>
-                                        <li><a data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-sign-in" aria-hidden="true"></i> دخول</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-2 hidden-xs">
-                                <div class="logo-area">
-                                    <a href="index.html"><img class="img-responsive" src="img/logo.png" alt="logo"></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
-                                <ul class="header-cart-area">
-
-                                    <li>
-                                        <div class="cart-area">
-                                            <a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>2</span></a>
-                                         </div>
-                                    </li>
-
+<div class="wrapper-area">
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <!-- Header Area Start Here -->
+    <header>
+        <div class="header-area-style2" id="sticker">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+                            <div class="account-wishlist">
+                                <ul>
+                                    <!-- Button trigger modal -->
+                                    <li><a data-toggle="modal" data-target="#exampleModalCenter1"><i class="fa fa-sign-out" aria-hidden="true"></i> تسجيل</a></li>
+                                    <li><a data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-sign-in" aria-hidden="true"></i> دخول</a></li>
                                 </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-2 hidden-xs">
+                            <div class="logo-area">
+                                <a href="index.html"><img class="img-responsive" src="img/logo.png" alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+                            <ul class="header-cart-area">
+
+                                <li>
+                                    <div class="cart-area">
+                                        <a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>2</span></a>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="logo-area">
+                                <a href="index.html"><img class="img-responsive" src="img/logo2.png" alt="logo"></a>
+                            </div>
+                            <div class="main-menu-area home2-sticky-area">
+                                <nav>
+                                    <ul>
+                                        <li ><a href="index.php">الرئيسة</a>
+                                        </li>
+                                        <li><a href="shop2.php">اولاد</a></li>
+                                        <li><a href="shop1.php">بنات</a></li>
+                                        <li><a href="about.php">من نحن</a></li>
+                                        <li><a href="contact.php">اتصل بنا</a></li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="header-bottom">
+                <!-- Mobile Menu Area Start Here -->
+                <div class="mobile-menu-area">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="logo-area">
-                                    <a href="index.html"><img class="img-responsive" src="img/logo2.png" alt="logo"></a>
-                                </div>
-                                <div class="main-menu-area home2-sticky-area">
-                                    <nav>
+                            <div class="col-md-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
                                         <ul>
-                                            <li class="active"><a href="index.html">Home</a>
+                                            <li ><a href="index.php">الرئيسة</a>
                                             </li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="shop2.php">اولاد</a></li>
+                                            <li><a href="shop1.php">بنات</a></li>
+                                            <li><a href="about.php">من نحن</a></li>
+                                            <li><a href="contact.php">اتصل بنا</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Mobile Menu Area Start Here -->
-                    <div class="mobile-menu-area">
-                        <div class="container">
+                </div>
+                <!-- Mobile Menu Area End Here -->
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">البريد الالكتروني</label>
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الالكتروني">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">الرقم السري</label>
+                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="الرقم السري">
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
+                        <button type="submit" name="login" class="btn btn-primary">دخول</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mobile-menu">
-                                        <nav id="dropdown">
-                                            <ul>
-                                                <li class="active"><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login-registration.html">Login Registration</a></li>
-                                                <li><a href="my-account.html">My Account</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                            </ul>
-                                        </nav>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="firstname" class="form-control" placeholder="الاسم الاول">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="mi" class="form-control" placeholder="الوسط">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="lastname" class="form-control" placeholder="الاسم الاخير">
+                                    </div>
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="form-group">
+                                        <input type="email"  name="email" class="form-control" placeholder="البريد الالكتروني">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="password" name="password" class="form-control" placeholder="الرقم السري">
+                                    </div>
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="form-group">
+                                        <input name="address" type="text" class="form-control" placeholder="العنوان">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="zipcode" class="form-control" placeholder="كود البريد">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6">
+                                    <div class="form-group">
+                                        <input type="tel" name="mobile" class="form-control" placeholder="الموبايل">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6">
+                                    <div class="form-group">
+                                        <input type="tel" name="telephone" class="form-control" placeholder="التليفون">
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                    <!-- Mobile Menu Area End Here -->
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">البريد الالكتروني</label>
-                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الالكتروني">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">الرقم السري</label>
-                                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="الرقم السري">
-                                </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
-                            <button type="submit" name="login" class="btn btn-primary">دخول</button>
-                            </form>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
+                        <button type="button" class="btn btn-primary">حفظ </button>
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post">
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <div class="form-group">
-                                            <input type="text" name="firstname" class="form-control" placeholder="الاسم الاول">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <div class="form-group">
-                                            <input type="text" name="mi" class="form-control" placeholder="الوسط">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <div class="form-group">
-                                            <input type="text" name="lastname" class="form-control" placeholder="الاسم الاخير">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <div class="form-group">
-                                            <input type="email"  name="email" class="form-control" placeholder="البريد الالكتروني">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <div class="form-group">
-                                            <input type="password" name="password" class="form-control" placeholder="الرقم السري">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <div class="form-group">
-                                            <input name="address" type="text" class="form-control" placeholder="العنوان">
-                                        </div>
-                                    </div>
-                                    <div class=" col-xs-4">
-                                        <div class="form-group">
-                                            <input type="text" name="zipcode" class="form-control" placeholder="كود البريد">
-                                        </div>
-                                    </div>
-                                    <div class=" col-xs-6">
-                                        <div class="form-group">
-                                            <input type="tel" name="mobile" class="form-control" placeholder="الموبايل">
-                                        </div>
-                                    </div>
-                                    <div class=" col-xs-6">
-                                        <div class="form-group">
-                                            <input type="tel" name="telephone" class="form-control" placeholder="التليفون">
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
-                            <button type="button" class="btn btn-primary">حفظ </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        </div>
+    </header>
         <!-- Header Area End Here -->
 <div class="container">
 
@@ -241,6 +242,8 @@ include("libs/customer_signup.php");
                         <p><?php echo $row['description'] ?></p>
                         <div class="product-details-content">
                             <p><?php echo $row['category'] ?><span>:الفئة</span></p>
+                            <p><?php echo $row['color'] ?><span>:الالوان</span></p>
+                            <p><?php echo $row['size'] ?><span>:الحجم</span></p>
                         </div>
                         <ul class="inner-product-details-cart">
                             <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
@@ -260,28 +263,33 @@ include("libs/customer_signup.php");
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xs-12">
-                    <div class="inner-product-details-left">
-                        <div class="tab-content">
-                            <div id="metro-related1" class="tab-pane fade active in">
-                                <a href="#"><img class="img-responsive"
-                                                 src="templates/img/product/<?php echo $row['category']; ?>/<?php echo $row['product_image']; ?>"
-                                                 alt="single"></a>
-                            </div>
-                        </div>
-                        <ul>
-                            <li class="active">
-                                <a aria-expanded="false" data-toggle="tab" href="#metro-related1"><img
-                                            class="img-responsive"
-                                            src="templates/img/product/<?php echo $row['category'];?>/<?php echo $row['product_image']; ?>"
-                                            alt="related1"></a>
-                            </li>
-                            <?php
-                            }
-?>
 
-                        </ul>
+                <div class="col-sm-6 col-xs-12">
+                    <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-outer">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active"> <img src="templates/img/product/<?php echo $row['category'];?>/<?php echo $row['product_image'];?>"&amp;text=slide1" alt="" /> </div>
+                                <div class="item"> <img src="templates/img/product/<?php echo $row['category'];?>/<?php echo $row['product_image2'];?>"&amp;text=slide2" alt="" /> </div>
+                                <div class="item"> <img src="templates/img/product/<?php echo $row['category'];?>/<?php echo $row['product_image3'];?>"&amp;text=slide3" alt="" /> </div>
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-custom" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a> <a class="right carousel-control" href="#carousel-custom" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators mCustomScrollbar">
+                            <li data-target="#carousel-custom" data-slide-to="0" class="active"><img src="templates/img/product/<?php echo $row['category'];?>/<?php echo $row['product_image'];?>"&amp;text=slide1" alt="" /></li>
+                            <li data-target="#carousel-custom" data-slide-to="1"><img src="templates/img/product/<?php echo $row['category'];?>/<?php echo $row['product_image2'];?>"&amp;text=slide2" alt="" /></li>
+                            <li data-target="#carousel-custom" data-slide-to="2"><img src="templates/img/product/<?php echo $row['category'];?>/<?php echo $row['product_image3']; ?>"&amp;text=slide3" alt=""style="" /></li>
+                        </ol>
+                        <?php
+                        }
+                        ?>
+
                     </div>
+
                 </div>
 
             </div>
@@ -368,22 +376,6 @@ include("libs/customer_signup.php");
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <p>© 2016 Spectra All Rights Reserved. Designed by<a href="http://spectraapps.com" target="_blank"> SpectraApps</a></p>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <ul class="payment-method">
-                                    <li>
-                                        <a href="#"><img src="img/payment-method1.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method2.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method3.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method4.jpg" alt="payment-method"></a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>

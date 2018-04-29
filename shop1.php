@@ -1,8 +1,7 @@
 <?php
-include("libs/session.php");
-include("libs/dbconn.php");
+include("libs/login.php");
+include("libs/customer_signup.php");
 ?>
-
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -57,16 +56,10 @@ include("libs/dbconn.php");
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
                             <div class="account-wishlist">
-                                <?php
-                                $id = (int) $_SESSION['id'];
-
-                                $query = $conn->query ("SELECT * FROM customer WHERE customerid = '$id' ") or die (mysqli_error());
-                                $fetch = $query->fetch_array ();
-                                ?>
                                 <ul>
                                     <!-- Button trigger modal -->
-                                    <li><a href="libs/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>خروج</a></li>
-                                    <li><a data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-sign-in" aria-hidden="true"></i> <?php echo $fetch['firstname']; ?>&nbsp;<?php echo $fetch['lastname'];?></a>:مرحبا</li>
+                                    <li><a data-toggle="modal" data-target="#exampleModalCenter1"><i class="fa fa-sign-out" aria-hidden="true"></i> تسجيل</a></li>
+                                    <li><a data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-sign-in" aria-hidden="true"></i> دخول</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -99,10 +92,12 @@ include("libs/dbconn.php");
                             <div class="main-menu-area home2-sticky-area">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="index.html">Home</a>
+                                        <li ><a href="index.php">الرئيسة</a>
                                         </li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="shop2.php">اولاد</a></li>
+                                        <li><a href="shop1.php">بنات</a></li>
+                                        <li><a href="about.php">من نحن</a></li>
+                                        <li><a href="contact.php">اتصل بنا</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -117,13 +112,12 @@ include("libs/dbconn.php");
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li class="active"><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="login-registration.html">Login Registration</a></li>
-                                            <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li ><a href="index.php">الرئيسة</a>
+                                            </li>
+                                            <li><a href="shop2.php">اولاد</a></li>
+                                            <li><a href="shop1.php">بنات</a></li>
+                                            <li><a href="about.php">من نحن</a></li>
+                                            <li><a href="contact.php">اتصل بنا</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -143,70 +137,108 @@ include("libs/dbconn.php");
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <div class="form-group">
-                                        <td class="profile">Name:</td><td class="profile"><?php echo $fetch['firstname'];?>&nbsp;<?php echo $fetch['mi'];?>&nbsp;<?php echo $fetch['lastname'];?></td>
-                                    </div>
-                                </div>
-                                <div class="col-xs-4">
-                                    <div class="form-group">
-                                        <td class="profile">Address:</td><td class="profile"><?php echo $fetch['address'];?></td>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="form-group">
-                                        <td class="profile">ZIP Code:</td><td class="profile"><?php echo $fetch['zipcode'];?></td>
-                                    </div>
-                                </div>
-                                <div class="col-xs-4">
-                                    <div class="form-group">
-                                        <td class="profile">Mobile Number:</td><td class="profile"><?php echo $fetch['mobile'];?></td>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8">
-                                    <div class="form-group">
-                                        <td class="profile">Telephone Number:</td><td class="profile"><?php echo $fetch['telephone'];?></td>
-                                    </div>
-                                </div>
-                                <div class=" col-xs-4">
-                                    <div class="form-group">
-                                        <td class="profile">Email:</td><td class="profile"><?php echo $fetch['email'];?></td>
-                                    </div>
-                                </div>
-
-
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">البريد الالكتروني</label>
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الالكتروني">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">الرقم السري</label>
+                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="الرقم السري">
                             </div>
 
                     </div>
                     <div class="modal-footer">
-                        <a href="account.php?id=<?php echo $fetch['customerid']; ?>"><input type="button" class="btn btn-success" name="edit" value="تعديل"></a>
-                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">اغلاق</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
+                        <button type="submit" name="login" class="btn btn-primary">دخول</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-        <!-- Inner Page Banner Area Start Here -->
-        <div class="inner-page-banner-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcrumb-area">
-                            <h1>Girls</h1>
-                            <ul>
-                                <li><a href="index.html">Home</a> /</li>
-                                <li><a href="#">Category</a> /</li>
-                                <li>Girls</li>
-                            </ul>
-                        </div>
+        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="firstname" class="form-control" placeholder="الاسم الاول">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="mi" class="form-control" placeholder="الوسط">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="lastname" class="form-control" placeholder="الاسم الاخير">
+                                    </div>
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="form-group">
+                                        <input type="email"  name="email" class="form-control" placeholder="البريد الالكتروني">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <input type="password" name="password" class="form-control" placeholder="الرقم السري">
+                                    </div>
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="form-group">
+                                        <input name="address" type="text" class="form-control" placeholder="العنوان">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" name="zipcode" class="form-control" placeholder="كود البريد">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6">
+                                    <div class="form-group">
+                                        <input type="tel" name="mobile" class="form-control" placeholder="الموبايل">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6">
+                                    <div class="form-group">
+                                        <input type="tel" name="telephone" class="form-control" placeholder="التليفون">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
+                        <button type="button" class="btn btn-primary">حفظ </button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Inner Page Banner Area End Here -->
+    </header>
+    <!-- Inner Page Banner Area Start Here -->
+    <div class="inner-page-banner-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcrumb-area">
+                        <h1>بنات</h1>
+                        <ul>
+                            <li><a href="index.php">الرئيسة</a> /</li>
+                            <li>بنات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         <!-- Shop Page Area Start Here -->
     <div class="shop-page-area">
         <div class="container">
@@ -235,7 +267,7 @@ include("libs/dbconn.php");
 
                                 <?php
 
-                                $query = $conn->query("SELECT *FROM product WHERE category='Girls' ORDER BY product_id DESC") or die (mysqli_error());
+                                $query = $conn->query("SELECT *FROM product WHERE category='girl' ORDER BY product_id DESC") or die (mysqli_error());
 
                                 while($fetch = $query->fetch_array())
                                 {
@@ -254,7 +286,7 @@ include("libs/dbconn.php");
                                         echo "<ul class=\"product-social\">
                                         <li><a href=\"#\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i></a></li>
                                         <li><a href=\"#\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i></a></li>
-                                        <li><a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i></a></li>
+                            <li><a href='details.php?id=".$fetch['product_id']."'><i class=\"fa fa-eye\" aria-hidden=\"true\"></i></a></li>
                                     </ul>";
                                         echo "<div class=\"product-img-holder\">";
                                         echo "<a href='details.php?id=".$fetch['product_id']."'><img class=\"img-responsive\"  src='templates/img/product/girl/".$fetch['product_image']."' alt=\"girls\"></a>";
@@ -278,7 +310,7 @@ include("libs/dbconn.php");
 
                                 <?php
 
-                                $query = $conn->query("SELECT *FROM product WHERE category='Girls' ORDER BY product_id DESC") or die (mysqli_error());
+                                $query = $conn->query("SELECT *FROM product WHERE category='girl' ORDER BY product_id DESC") or die (mysqli_error());
 
                                 while($fetch = $query->fetch_array())
                                 {
@@ -307,7 +339,7 @@ include("libs/dbconn.php");
                                         echo "<ul class=\"product-box2-cart\">
                                                         <li><a href=\"#\">Add To Cart</a></li>
                                                         <li><a href=\"#\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i></a></li>
-                                                        <li><a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i></a></li>
+                                                        <li><a href=\"details.php\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i></a></li>
                                                     </ul>";
                                         echo "</div>
                                             </div>
@@ -404,22 +436,6 @@ include("libs/dbconn.php");
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <p>© 2016 Spectra All Rights Reserved. Designed by<a href="http://spectraapps.com" target="_blank"> SpectraApps</a></p>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <ul class="payment-method">
-                                    <li>
-                                        <a href="#"><img src="img/payment-method1.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method2.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method3.jpg" alt="payment-method"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/payment-method4.jpg" alt="payment-method"></a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
